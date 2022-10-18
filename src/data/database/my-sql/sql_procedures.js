@@ -16,11 +16,11 @@ const changeTableStatus = (id) => {
 }
 
 const insertTable = (table) => {
-  const { number, seats } = table
+  const { number } = table
   const code = table.status.code
   return {
     name: 'SP_INSERTAR_MESA',
-    statements: [`CALL SP_INSERTAR_MESA(${number}, ${seats}, ${code});`],
+    statements: [`CALL SP_INSERTAR_MESA(${number}, ${code});`],
     values: []
   }
 }
@@ -42,11 +42,11 @@ const listTableById = (id) => {
 }
 
 const updateTable = (table, id) => {
-  const { number, seats } = table
+  const { number } = table
   const code = table.status.code
   return {
     name: 'SP_MODIFICAR_MESA',
-    statements: [`CALL SP_MODIFICAR_MESA(${id}, ${number}, ${seats}, ${code});`],
+    statements: [`CALL SP_MODIFICAR_MESA(${id}, ${number}, ${code});`],
     values: []
   }
 }
